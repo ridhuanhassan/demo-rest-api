@@ -84,7 +84,7 @@ const router = (function () {
   }
 
   return {
-    // open private method for testing
+    // open private methods for testing
     _insertRouter: insertRouter,
     _routerTree: routerTree,
     // insert route into routeTree based on HTTP methods
