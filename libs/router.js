@@ -1,5 +1,7 @@
 const qs = require('querystring');
 
+const helper = require('./helper');
+
 const simple = Symbol.for('simple');
 
 const router = (function () {
@@ -123,13 +125,7 @@ const router = (function () {
       }
 
       if (!handler) {
-        res.setHeader('content-type', 'application/json');
-        res.statusCode = 404;
-        return res.end(JSON.stringify({
-          error: {
-            message: 'Url not found',
-          },
-        }));
+        return helper.sendErrorResponse(res, 'Url not found', 404);
       }
 
       const params = Object.keys(handler.params);
