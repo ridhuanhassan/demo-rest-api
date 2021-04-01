@@ -13,5 +13,7 @@ module.exports = {
   rules: {
     'func-names': 'off',
     'no-underscore-dangle': 'off',
+    'no-useless-return': 'off',
+    'no-continue': 'off',
   },
 };
