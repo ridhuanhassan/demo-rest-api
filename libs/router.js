@@ -123,9 +123,13 @@ const router = (function () {
       }
 
       if (!handler) {
+        res.setHeader('content-type', 'application/json');
         res.statusCode = 404;
-        res.write('404');
-        return res.end();
+        return res.end(JSON.stringify({
+          error: {
+            message: 'Url not found',
+          },
+        }));
       }
 
       const params = Object.keys(handler.params);
