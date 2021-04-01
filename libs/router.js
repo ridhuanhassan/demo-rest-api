@@ -45,7 +45,9 @@ const router = (function () {
 
     // is there any node for current method?
     const methodNode = depthNode[method.toUpperCase()];
-    if (!methodNode) depthNode[method.toUpperCase()] = {};
+    if (!methodNode) {
+      depthNode[method.toUpperCase()] = {};
+    }
 
     // convert path structure into regular expression
     // from this, psg1/:prm1/psg2/:prm2
@@ -61,8 +63,11 @@ const router = (function () {
     regexString = `^\\/${regexString}`;
 
     // append \/?$
-    if (trimmedPath) regexString = `${regexString}\\/?$`;
-    else regexString = `${regexString}$`;
+    if (trimmedPath) {
+      regexString = `${regexString}\\/?$`;
+    } else {
+      regexString = `${regexString}$`;
+    }
 
     // check if regex already exist
     if (routerTree[depth][method.toUpperCase()]?.[regexString]) {
@@ -128,7 +133,9 @@ const router = (function () {
       let j = 0;
       const jMax = params.length;
       for (; j < jMax; j += 1) {
-        if (!req.params) req.params = {};
+        if (!req.params) {
+          req.params = {};
+        }
 
         const param = params[j];
         req.params[handler.params[param]] = qs.unescape(pathSegments[param]);
