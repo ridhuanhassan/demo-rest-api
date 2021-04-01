@@ -48,8 +48,8 @@ const router = (function () {
     if (!methodNode) depthNode[method.toUpperCase()] = {};
 
     // convert path structure into regular expression
-    // from this, sub1/:arg1/sub2/:arg2
-    // to this  , ^\/sub1\/[^/]+\/sub2\/[^/]+\/?$
+    // from this, psg1/:prm1/psg2/:prm2
+    // to this  , ^\/psg1\/[^/]+\/psg2\/[^/]+\/?$
 
     // replace / to \/
     let regexString = trimmedPath.replace(/\//g, '\\/');
