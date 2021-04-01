@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const router = require('../../../libs/router');
 
 describe('lib/router: Insert router', () => {
