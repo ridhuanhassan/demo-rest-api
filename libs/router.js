@@ -5,7 +5,7 @@ const simple = Symbol.for('simple');
 const router = (function () {
   const routerTree = {};
 
-  function mapHandler(method, path, callback) {
+  function insertRouter(method, path, callback) {
     if (!path || !callback) {
       throw new Error('Path and callback is required');
     }
@@ -78,14 +78,14 @@ const router = (function () {
 
   return {
     // open private method for testing
-    _mapHandler: mapHandler,
+    _insertRouter: insertRouter,
     _routerTree: routerTree,
-    // function to map path and callback based on HTTP methods
-    get: (path, callback) => mapHandler('GET', path, callback),
-    post: (path, callback) => mapHandler('POST', path, callback),
-    put: (path, callback) => mapHandler('PUT', path, callback),
-    patch: (path, callback) => mapHandler('PATCH', path, callback),
-    delete: (path, callback) => mapHandler('DELETE', path, callback),
+    // insert route into routeTree based on HTTP methods
+    get: (path, callback) => insertRouter('GET', path, callback),
+    post: (path, callback) => insertRouter('POST', path, callback),
+    put: (path, callback) => insertRouter('PUT', path, callback),
+    patch: (path, callback) => insertRouter('PATCH', path, callback),
+    delete: (path, callback) => insertRouter('DELETE', path, callback),
     // process incoming HTTP requests
     process: (req, res) => {
       res.setHeader('X-Powered-By', 'Ridhuan Hassan');
