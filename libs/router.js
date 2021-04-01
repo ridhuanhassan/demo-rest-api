@@ -3,7 +3,7 @@ const qs = require('querystring');
 const simple = Symbol.for('simple');
 
 const router = (function () {
-  const pathTree = {};
+  const routerTree = {};
 
   function mapHandler(method, path, callback) {
     if (!path || !callback) {
@@ -37,10 +37,10 @@ const router = (function () {
     const depth = trimmedPath === '' ? 0 : pathSegments.length;
 
     // is there any node at this depth?
-    let depthNode = pathTree[depth];
+    let depthNode = routerTree[depth];
     if (!depthNode) {
-      pathTree[depth] = {};
-      depthNode = pathTree[depth];
+      routerTree[depth] = {};
+      depthNode = routerTree[depth];
     }
 
     // is there any node for current method?
@@ -65,12 +65,12 @@ const router = (function () {
     else regexString = `${regexString}$`;
 
     // check if regex already exist
-    if (pathTree[depth][method.toUpperCase()]?.[regexString]) {
+    if (routerTree[depth][method.toUpperCase()]?.[regexString]) {
       throw new Error(`Path ${path} already exist.`);
     }
 
     // save new regex
-    pathTree[depth][method.toUpperCase()][regexString] = {
+    routerTree[depth][method.toUpperCase()][regexString] = {
       params,
       callback,
     };
@@ -79,7 +79,7 @@ const router = (function () {
   return {
     // open private method for testing
     _mapHandler: mapHandler,
-    _pathTree: pathTree,
+    _routerTree: routerTree,
     // function to map path and callback based on HTTP methods
     get: (path, callback) => mapHandler('GET', path, callback),
     post: (path, callback) => mapHandler('POST', path, callback),
@@ -96,7 +96,7 @@ const router = (function () {
 
       // find the right handler for current request
       const depth = simpleReq.trimmedPath === '' ? 0 : pathSegments.length;
-      const handlers = pathTree[depth]?.[simpleReq.method.toUpperCase()];
+      const handlers = routerTree[depth]?.[simpleReq.method.toUpperCase()];
 
       let handler;
 
