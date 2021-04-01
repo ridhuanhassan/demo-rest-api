@@ -15,6 +15,8 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-useless-return': 'off',
     'no-continue': 'off',
+    'prefer-destructuring': 'off',
+    'no-cond-assign': 'off',
   },
   overrides: [{
     files: ['tests/libs/*/*.js'],
