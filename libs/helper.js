@@ -106,8 +106,8 @@ helper.logger = (function () {
   const print = (type, message) => {
     const tag = {
       INFO: '\x1b[1;4;38;5;111mINFO\x1b[0m',
-      WARN: '\x1b[1;4;38;5;111mINFO\x1b[0m',
-      ERROR: '\x1b[1;4;38;5;111mINFO\x1b[0m',
+      WARN: '\x1b[1;4;38;5;167mWARN\x1b[0m',
+      ERROR: '\x1b[1;4;38;5;215mERROR\x1b[0m',
     };
 
     process.stdout.write(`${tag[type]}\t: ${message}\n`);
