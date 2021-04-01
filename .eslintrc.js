@@ -16,4 +16,10 @@ module.exports = {
     'no-useless-return': 'off',
     'no-continue': 'off',
   },
+  overrides: [{
+    files: ['tests/libs/*/*.js'],
+    rules: {
+      'no-undef': 'off',
+    },
+  }],
 };
