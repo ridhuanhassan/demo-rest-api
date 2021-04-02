@@ -23,5 +23,14 @@ module.exports = {
     rules: {
       'no-undef': 'off',
     },
+  }, {
+    files: ['./index.js'],
+    rules: {
+      'max-len': [
+        'error', {
+          code: 101,
+        },
+      ],
+    },
   }],
 };
