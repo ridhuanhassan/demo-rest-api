@@ -30,7 +30,7 @@ exports.init = () => {
     const contentType = req.headers['content-type']?.split(';')[0].trim();
 
     // process static file
-    if (url.match(/^\/xyz\/\S+|^\/xyz\/?$/, 'g')) {
+    if (url.match(/^\/static\/\S+|^\/static\/?$/, 'g')) {
       // lazy check, use file extension :')
       res.setHeader('content-type', helper.getContentType(url));
 
