@@ -5,6 +5,7 @@ const qs = require('querystring');
 const router = require('./router');
 const helper = require('./helper');
 
+const { logger } = helper;
 const simple = Symbol.for('simple');
 
 exports.init = () => {
@@ -16,7 +17,7 @@ exports.init = () => {
 
   server.on('request', (req, res) => {
     req.on('error', (error) => {
-      helper.logger.error(error.message);
+      logger.error(error.message);
       // TODO: log to file
     });
 
@@ -94,7 +95,7 @@ exports.init = () => {
 
     req.on('end', () => {
       res.on('error', (error) => {
-        helper.logger.error(error.message);
+        logger.error(error.message);
         // TODO: log to file
       });
 
@@ -179,7 +180,7 @@ exports.init = () => {
 
   const port = process.env.PORT || 3000;
   server.listen(port, () => {
-    helper.logger.info(`mini-blog started at port ${port}`);
+    logger.info(`mini-blog started at port ${port}`);
   });
 
   return server;
