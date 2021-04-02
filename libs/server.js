@@ -17,7 +17,7 @@ exports.init = () => {
   server.on('request', (req, res) => {
     req.on('error', (error) => {
       helper.logger.error(error.message);
-      // TODO log to file
+      // TODO: log to file
     });
 
     const { method, url, headers } = req;
