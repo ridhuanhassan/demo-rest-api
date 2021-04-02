@@ -1,8 +1,8 @@
 {
-  "name": "mini-blog",
+  "name": "demo-rest-api",
   "version": "1.0.0",
-  "description": "a blogging tool for a loner",
-  "main": "blog.js",
+  "description": "demonstrate my knowledge on building REST API using Node JS without having to rely on any framework",
+  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
@@ -12,20 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ridhuanhassan/mini-blog.git"
+    "url": "git+https://github.com/ridhuanhassan/demo-rest-api.git"
   },
   "keywords": [
-    "mini",
-    "blog",
+    "rest",
     "node",
     "js"
   ],
   "author": "Ridhuan Hassan",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ridhuanhassan/mini-blog/issues"
+    "url": "https://github.com/ridhuanhassan/demo-rest-api/issues"
   },
-  "homepage": "https://github.com/ridhuanhassan/mini-blog#readme",
+  "homepage": "https://github.com/ridhuanhassan/demo-rest-api#readme",
   "devDependencies": {
     "@types/jest": "^26.0.22",
     "eslint": "^7.23.0",

@@ -1,2 +1,6 @@
-# mini-blog
-A mini blogging tool for a loner.
+# demo-rest-api
+Demonstrate my knowledge on building REST API using Node JS without having to rely on any framework.
+
+# demo endpoints
+
+# test

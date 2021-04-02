@@ -180,7 +180,7 @@ exports.init = () => {
 
   const port = process.env.PORT || 3000;
   server.listen(port, () => {
-    logger.info(`mini-blog started at port ${port}`);
+    logger.info(`REST API server started at port ${port}`);
   });
 
   return server;
