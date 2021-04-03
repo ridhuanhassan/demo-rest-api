@@ -1,6 +1,16 @@
 # demo-rest-api
 Demonstrate my knowledge on building REST API using Node JS without having to rely on any framework.
 
-# demo endpoints
+## Setup
+Create cert directory
+> cd demo-rest-api
+> mkdir cert && cd cert
 
-# test
+Generate a self-signed certificate for testing
+> openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+
+
+## Run server
+> npm start
+
+Server will start at default port 3000. Port can be changed through environment variable PORT.
