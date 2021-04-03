@@ -77,4 +77,4 @@ license text.
 
 ## Footnote
 
-<b id="f1">[1](#a1)</b> Server will start at default port 3000. Port can be changed through environment variable PORT.
+<span id="f1">[1](#a1)</span> Server will start at default port 3000. Port can be changed through environment variable PORT.
