@@ -17,7 +17,9 @@ Demonstrate my knowledge on building REST API using Node JS standard library wit
 
 This project is built entirely using pure Node JS except for test files which relies on Jest framework.
 
-I had limit what will be included in this demo due to time constraint. But you can expect a few things as listed below but not limited to just those mentioned.
+I had limit what will be included in this demo due to time constraint.
+But you can expect a few things as listed below but not limited to just those mentioned.
+My best suggestion is that you have to dive into my code to know more.
 
 * Implementation of HTTP request router.
   * Supports GET, POST, PUT, PATCH, and DELETE.
