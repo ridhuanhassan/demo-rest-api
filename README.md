@@ -11,6 +11,7 @@ Demonstrate my knowledge on building REST API using Node JS standard library wit
 * [Run using Docker](#run-using-docker)
 * [Run test files](#run-test-files)
 * [License](#license)
+* [Footnote](#footnote)
 
 ## Intro
 
@@ -46,7 +47,7 @@ Install dev dependencies
 npm install
 ```
 
-Run server
+Run server <sup id='tc1'>[1](#tf1)</sup>
 ```
 npm start
 ```
@@ -55,8 +56,6 @@ npm start
 ```
 docker run --name demo-rest-api -d -p 3000:3000 leetbox/demo-rest-api:1.0
 ```
-
-Server will start at default port 3000. Port can be changed through environment variable PORT.
 
 ## Run test files
 
@@ -73,3 +72,7 @@ npm run watch-start
 
 See [LICENSE](https://github.com/ridhuanhassan/demo-rest-api/blob/main/LICENSE) for the full
 license text.
+
+## Footnote
+
+<b id='tf1'>1</b> Server will start at default port 3000. Port can be changed through environment variable PORT. [↩](#tc1)
