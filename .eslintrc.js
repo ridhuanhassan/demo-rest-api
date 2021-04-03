@@ -32,5 +32,10 @@ module.exports = {
         },
       ],
     },
+  }, {
+    files: ['router/*.js'],
+    rules: {
+      'global-require': 'off',
+    },
   }],
 };
