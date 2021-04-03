@@ -47,7 +47,7 @@ Install dev dependencies
 npm install
 ```
 
-Run server <sup id='tc1'>[1](#tf1)</sup>
+Run server <sup id="a1">[1](#f1)</sup>
 ```
 npm start
 ```
@@ -75,4 +75,4 @@ license text.
 
 ## Footnote
 
-<b id='tf1'>1</b> Server will start at default port 3000. Port can be changed through environment variable PORT. [↩](#tc1)
+<b id="f1">[1](#a1)</b> Server will start at default port 3000. Port can be changed through environment variable PORT.
