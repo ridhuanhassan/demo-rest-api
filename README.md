@@ -18,6 +18,9 @@ Create cert directory
 Generate a self-signed certificate for testing
 > openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 
+Install dev dependencies
+> npm install
+
 ## Run server
 
 > npm start
