@@ -1,7 +1,11 @@
 
 # demo-rest-api
 
-Demonstrate my knowledge on building REST API using Node JS without having to rely on any framework.
+Demonstrate my knowledge on building REST API using Node JS standard library without having to rely on any framework.
+
+## Intro
+
+This project is built entirely using pure Node JS except for test files which relies on Jest framework.
 
 ## Setup
 
@@ -19,3 +23,11 @@ Generate a self-signed certificate for testing
 > npm start
 
 Server will start at default port 3000. Port can be changed through environment variable PORT.
+
+## Run test
+
+Test once
+> npm test
+
+Automatically re-run test when there is changes
+> npm run watch-start
