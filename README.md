@@ -49,7 +49,7 @@ Install dev dependencies
 npm install
 ```
 
-Run server <sup id='runserver'>[1](#note-runserver)</sup>
+Run server <sup id='run-server'>[1](#note-run-server)</sup>
 ```
 npm start
 ```
@@ -77,4 +77,4 @@ license text.
 
 ## Footnote
 
-<span id='note-runserver'>[1](#runserver)</span> Server will start at default port 3000. Port can be changed through environment variable PORT.
+<span id='note-run-server'>[1](#run-server)</span> Server will start at default port 3000. Port can be changed through environment variable PORT.
