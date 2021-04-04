@@ -38,8 +38,8 @@ cat.listBreeds = () => {
             const iMax = jsonified.length;
             for (; i < iMax; i += 1) {
               catBreeds.push({
-                id: jsonified[i].id,
-                name: jsonified[i].name,
+                id: jsonified[i]?.id,
+                name: jsonified[i]?.name,
                 image: jsonified[i]?.image?.url || 'n/a',
               });
             }
@@ -97,8 +97,8 @@ cat.imageByBreed = (input) => {
             const iMax = jsonified.length;
             for (; i < iMax; i += 1) {
               images.push({
-                id: jsonified[i].id,
-                image: jsonified[i].url,
+                id: jsonified[i]?.id,
+                image: jsonified[i]?.url,
               });
             }
 
