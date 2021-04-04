@@ -133,12 +133,12 @@ const router = (function () {
       let j = 0;
       const jMax = params.length;
       for (; j < jMax; j += 1) {
-        if (!req.params) {
-          req.params = {};
+        if (!req[simple].params) {
+          req[simple].params = {};
         }
 
         const param = params[j];
-        req.params[handler.params[param]] = qs.unescape(pathSegments[param]);
+        req[simple].params[handler.params[param]] = qs.unescape(pathSegments[param]);
       }
 
       return handler.callback(req, res);
