@@ -42,10 +42,10 @@ router.post('/cat/upload', (req, res) => {
   };
 
   cat.uploadImage(input)
-    .then((images) => {
+    .then((image) => {
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
-      res.write(images);
+      res.write(JSON.stringify(image));
       res.end();
     })
     .catch((error) => {
