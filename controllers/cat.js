@@ -171,6 +171,8 @@ cat.uploadImage = (input) => {
               image: jsonified?.url,
             });
           }
+
+          reject(new Error('Unexpected result'));
         });
       });
 
