@@ -161,7 +161,17 @@ cat.uploadImage = (input) => {
         });
 
         res.on('end', () => {
-          resolve(result);
+          const statusCode = res.statusCode;
+          const contentType = res.headers['content-type'].split(';')[0].trim();
+
+          if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
+            const jsonified = JSON.parse(result);
+
+            resolve({
+              id: jsonified?.id,
+              image: jsonified?.url,
+            });
+          }
         });
       });
 
