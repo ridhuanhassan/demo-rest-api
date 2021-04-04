@@ -28,7 +28,7 @@ cat.listBreeds = () => {
         const statusCode = res.statusCode;
         const contentType = res.headers['content-type'].split(';')[0].trim();
 
-        if (statusCode === 200 && contentType === 'application/json') {
+        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
           const jsonified = JSON.parse(result);
 
           if (Array.isArray(jsonified)) {
@@ -87,7 +87,7 @@ cat.imageByBreed = (input) => {
         const statusCode = res.statusCode;
         const contentType = res.headers['content-type'].split(';')[0].trim();
 
-        if (statusCode === 200 && contentType === 'application/json') {
+        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
           const jsonified = JSON.parse(result);
 
           if (Array.isArray(jsonified)) {
