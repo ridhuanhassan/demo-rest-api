@@ -55,6 +55,7 @@ npm start
 ```
 
 ## Run using Docker
+Please use manual setup for now. I haven't completed this code. Decided not to push incomplete demo.
 ```
 docker run --name demo-rest-api -d -p 3000:3000 leetbox/demo-rest-api:1.0
 ```
