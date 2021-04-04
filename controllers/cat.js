@@ -133,7 +133,6 @@ cat.uploadImage = (input) => {
       let data = '';
       data += `--${boundary}\r\n`;
       data += `Content-Disposition: form-data; name="file"; filename="${file.originalFileName}"\r\n`;
-      // data += 'Content-Type:application/octet-stream\r\n\r\n';
       data += `Content-Type:${file.contentType}\r\n\r\n`;
       const payload = Buffer.concat([
         Buffer.from(data, 'utf8'),
