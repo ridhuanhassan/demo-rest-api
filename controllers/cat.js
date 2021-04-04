@@ -1,6 +1,5 @@
 const https = require('https');
-
-// const helper = require('../libs/helper');
+const { randomBytes } = require('crypto');
 
 const cat = {};
 
@@ -116,6 +115,63 @@ cat.imageByBreed = (input) => {
     });
 
     req.end();
+  });
+};
+
+cat.uploadImage = (input) => {
+  const file = input.file;
+
+  if (!file) {
+    return Promise.reject(new Error('Missing field \'file\''));
+  }
+
+  return new Promise((resolve, reject) => {
+    randomBytes(5, (error, buf) => {
+      if (error) Promise.reject(error);
+      const boundary = buf.toString('hex');
+
+      let data = '';
+      data += `--${boundary}\r\n`;
+      data += `Content-Disposition: form-data; name="file"; filename="${file.originalFileName}"\r\n`;
+      // data += 'Content-Type:application/octet-stream\r\n\r\n';
+      data += `Content-Type:${file.contentType}\r\n\r\n`;
+      const payload = Buffer.concat([
+        Buffer.from(data, 'utf8'),
+        Buffer.from(file.content, 'binary'),
+        Buffer.from(`\r\n--${boundary}--\r\n`, 'utf8'),
+      ]);
+
+      const options = {
+        hostname: 'api.thecatapi.com',
+        port: 443,
+        path: '/v1/images/upload',
+        method: 'POST',
+        headers: {
+          'Content-Type': `multipart/form-data; boundary=${boundary}`,
+          'Content-Length': payload.length,
+          'X-Api-Key': apiKey,
+        },
+      };
+
+      const req = https.request(options, (res) => {
+        let result = '';
+
+        res.on('data', (chunk) => {
+          result += chunk;
+        });
+
+        res.on('end', () => {
+          resolve(result);
+        });
+      });
+
+      req.on('reqError', (reqError) => {
+        reject(reqError);
+      });
+
+      req.write(payload);
+      req.end();
+    });
   });
 };
 
