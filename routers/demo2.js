@@ -35,3 +35,20 @@ router.get('/cat/breed/:breedId/images', (req, res) => {
       helper.sendErrorResponse(res, error.message, 400);
     });
 });
+
+router.post('/cat/upload', (req, res) => {
+  const input = {
+    file: req[simple].files?.file,
+  };
+
+  cat.uploadImage(input)
+    .then((images) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.write(images);
+      res.end();
+    })
+    .catch((error) => {
+      helper.sendErrorResponse(res, error.message, 400);
+    });
+});
