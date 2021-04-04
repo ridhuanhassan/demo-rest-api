@@ -33,7 +33,7 @@ module.exports = {
       ],
     },
   }, {
-    files: ['router/*.js'],
+    files: ['routers/*.js'],
     rules: {
       'global-require': 'off',
     },
