@@ -97,7 +97,10 @@ cat.imageByBreed = (input) => {
             let i = 0;
             const iMax = jsonified.length;
             for (; i < iMax; i += 1) {
-              images.push(jsonified[i].url);
+              images.push({
+                id: jsonified[i].id,
+                image: jsonified[i].url,
+              });
             }
 
             resolve(images);
