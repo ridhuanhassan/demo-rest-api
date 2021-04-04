@@ -115,7 +115,7 @@ exports.init = () => {
 
         const bodyArray = body.split(boundary);
 
-        const files = [];
+        const files = {};
         req[simple].body = {};
 
         let i = 0;
@@ -153,10 +153,10 @@ exports.init = () => {
               fieldName: name,
               originalFileName: filename,
               content: Buffer.from(content, 'binary'),
-              contentType: fileContentType,
+              contentType: fileContentType.trim(),
             };
 
-            files.push(file);
+            files[name] = file;
           } else {
             req[simple].body[name] = content;
           }
