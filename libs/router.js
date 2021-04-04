@@ -31,7 +31,7 @@ const router = (function () {
     pathSegments.forEach((pathSegment, index) => {
       // map param location and param value
       if (pathSegment.startsWith(':')) {
-        params[index] = pathSegment;
+        params[index] = pathSegment.split(':')[1];
       }
     });
 
