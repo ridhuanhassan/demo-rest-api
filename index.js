@@ -13,7 +13,7 @@
 const { logger } = require('./libs/helper');
 
 // Init Router
-require('./router').init();
+require('./routers').init();
 
 // Init HTTPS server
 const server = require('./libs/server').init();
