@@ -28,9 +28,9 @@ cat.listBreeds = () => {
         const statusCode = res.statusCode;
         const contentType = res.headers['content-type'].split(';')[0].trim();
 
-        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
-          const jsonified = JSON.parse(result);
+        const jsonified = JSON.parse(result);
 
+        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
           if (Array.isArray(jsonified)) {
             const catBreeds = [];
 
@@ -45,6 +45,8 @@ cat.listBreeds = () => {
             }
 
             resolve(catBreeds);
+          } else {
+            reject(new Error('Expecting array'));
           }
 
           reject(new Error(jsonified.message));
@@ -87,9 +89,9 @@ cat.imageByBreed = (input) => {
         const statusCode = res.statusCode;
         const contentType = res.headers['content-type'].split(';')[0].trim();
 
-        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
-          const jsonified = JSON.parse(result);
+        const jsonified = JSON.parse(result);
 
+        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
           if (Array.isArray(jsonified)) {
             const images = [];
 
@@ -103,10 +105,12 @@ cat.imageByBreed = (input) => {
             }
 
             resolve(images);
+          } else {
+            reject(new Error('Expecting array'));
           }
-
-          reject(new Error(jsonified.message));
         }
+
+        reject(new Error(jsonified.message));
       });
     });
 
