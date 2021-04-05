@@ -47,7 +47,7 @@ cat.listBreeds = () => {
             resolve(catBreeds);
           }
 
-          reject(new Error('Unexpected result'));
+          reject(new Error(jsonified.message));
         }
       });
     });
@@ -105,7 +105,7 @@ cat.imageByBreed = (input) => {
             resolve(images);
           }
 
-          reject(new Error('Unexpected result'));
+          reject(new Error(jsonified.message));
         }
       });
     });
@@ -163,16 +163,16 @@ cat.uploadImage = (input) => {
           const statusCode = res.statusCode;
           const contentType = res.headers['content-type'].split(';')[0].trim();
 
-          if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
-            const jsonified = JSON.parse(result);
+          const jsonified = JSON.parse(result);
 
+          if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
             resolve({
               id: jsonified?.id,
               image: jsonified?.url,
             });
           }
 
-          reject(new Error('Unexpected result'));
+          reject(new Error(jsonified.message));
         });
       });
 
