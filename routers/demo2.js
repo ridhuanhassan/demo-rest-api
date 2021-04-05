@@ -5,7 +5,12 @@ const helper = require('../libs/helper');
 const simple = Symbol.for('simple');
 
 router.get('/cat/breeds', (req, res) => {
-  cat.listBreeds()
+  const input = {
+    limit: req[simple].query?.limit,
+    page: req[simple].query?.page,
+  };
+
+  cat.listBreeds(input)
     .then((breeds) => {
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
@@ -36,7 +41,7 @@ router.get('/cat/breed/:breedId/images', (req, res) => {
     });
 });
 
-router.post('/cat/upload', (req, res) => {
+router.post('/cat', (req, res) => {
   const input = {
     file: req[simple].files?.file,
   };
@@ -53,7 +58,7 @@ router.post('/cat/upload', (req, res) => {
     });
 });
 
-router.get('/cat/upload/list', (req, res) => {
+router.get('/cat', (req, res) => {
   const input = {
     limit: req[simple].query?.limit,
     page: req[simple].query?.page,
@@ -64,6 +69,21 @@ router.get('/cat/upload/list', (req, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
       res.write(JSON.stringify(image));
+      res.end();
+    })
+    .catch((error) => {
+      helper.sendErrorResponse(res, error.message, 400);
+    });
+});
+
+router.delete('/cat/:imageId', (req, res) => {
+  const input = {
+    imageId: req[simple].params?.imageId,
+  };
+
+  cat.deleteImage(input)
+    .then(() => {
+      res.statusCode = 204;
       res.end();
     })
     .catch((error) => {
