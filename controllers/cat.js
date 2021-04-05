@@ -125,6 +125,10 @@ cat.uploadImage = (input) => {
     return Promise.reject(new Error('Missing field \'file\''));
   }
 
+  if (Array.isArray(file)) {
+    return Promise.reject(new Error('Expecting single file'));
+  }
+
   return new Promise((resolve, reject) => {
     randomBytes(5, (error, buf) => {
       if (error) Promise.reject(error);
