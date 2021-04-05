@@ -52,3 +52,21 @@ router.post('/cat/upload', (req, res) => {
       helper.sendErrorResponse(res, error.message, 400);
     });
 });
+
+router.get('/cat/upload/list', (req, res) => {
+  const input = {
+    limit: req[simple].query?.limit,
+    page: req[simple].query?.page,
+  };
+
+  cat.getUploadedImages(input)
+    .then((image) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.write(JSON.stringify(image));
+      res.end();
+    })
+    .catch((error) => {
+      helper.sendErrorResponse(res, error.message, 400);
+    });
+});

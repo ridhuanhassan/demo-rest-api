@@ -194,4 +194,59 @@ cat.uploadImage = (input) => {
   });
 };
 
+cat.getUploadedImages = (input) => {
+  const page = input.page || 1;
+  const limit = input.limit || 10;
+
+  const options = {
+    hostname: 'api.thecatapi.com',
+    port: 443,
+    path: `/v1/images?limit=${limit}&page=${page}`,
+    method: 'GET',
+    headers: {
+      'X-Api-Key': apiKey,
+    },
+  };
+
+  return new Promise((resolve, reject) => {
+    const req = https.request(options, (res) => {
+      let result = '';
+
+      res.on('data', (chunk) => {
+        result += chunk;
+      });
+
+      res.on('end', () => {
+        const statusCode = res.statusCode;
+        const contentType = res.headers['content-type'].split(';')[0].trim();
+
+        if (statusCode === 200 && contentType === 'application/json') {
+          const jsonified = JSON.parse(result);
+
+          const images = [];
+
+          let i = 0;
+          const iMax = jsonified.length;
+          for (; i < iMax; i += 1) {
+            images.push({
+              id: jsonified[i]?.id,
+              image: jsonified[i]?.url,
+            });
+          }
+
+          resolve(images);
+
+          reject(new Error('Unexpected result'));
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      reject(error);
+    });
+
+    req.end();
+  });
+};
+
 module.exports = cat;
