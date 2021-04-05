@@ -1,6 +1,6 @@
 const helper = {};
 
-helper.checkImageSignature = (buffer, imageExtension) => {
+helper.checkImageSignature = (buffer, filename) => {
   const imageSignatures = {
     jpg: [
       {
@@ -47,7 +47,9 @@ helper.checkImageSignature = (buffer, imageExtension) => {
 
   let result = false;
 
-  const imageSignature = imageSignatures[imageExtension];
+  const extension = filename.match(/\.(\w+$)/);
+
+  const imageSignature = imageSignatures[extension[1]];
 
   let i = 0;
   const iMax = imageSignature.length;
