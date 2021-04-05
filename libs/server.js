@@ -123,7 +123,7 @@ exports.init = () => {
         for (; i < iMax; i += 1) {
           const part = bodyArray[i];
 
-          let name = part.match(/(?:name=")(.+?)(?:")/, 'g');
+          let name = part.match(/(?:name=")(.+?)(?:")/);
 
           if (!name) {
             continue;
@@ -131,17 +131,17 @@ exports.init = () => {
             name = name[1];
           }
 
-          let content = part.match(/(?:\r\n\r\n)([\S\s]*)(?:\r\n--$)/, 'g');
+          let content = part.match(/(?:\r\n\r\n)([\S\s]*)(?:\r\n--$)/);
 
           if (content) {
             content = content[1];
           }
 
-          let filename = part.match(/(?:filename=")(.*?)(?:")/, 'g');
+          let filename = part.match(/(?:filename=")(.*?)(?:")/);
 
           if (filename && (filename = filename[1].trim())) {
             let fileContentType = part
-              .match(/(?:Content-Type:)(.*?)(?:\r\n)/, 'g');
+              .match(/(?:Content-Type:)(.*?)(?:\r\n)/);
 
             if (fileContentType) {
               fileContentType = fileContentType[1];

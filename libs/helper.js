@@ -83,7 +83,7 @@ helper.getContentType = (url) => {
     js: 'text/javascript; charset=utf-8',
   };
 
-  const extension = url.match(/\.(\w+$)/, 'g');
+  const extension = url.match(/\.(\w+$)/);
 
   if (extension && contentTypes[extension[1]]) {
     return contentTypes[extension[1]];
