@@ -80,7 +80,7 @@ describe('lib/router: Insert router', () => {
         POST: {
           '^\\/user\\/[^/]+\\/?$': {
             params: {
-              1: ':userId',
+              1: 'userId',
             },
             callback: expect.any(Function),
           },
@@ -99,7 +99,7 @@ describe('lib/router: Insert router', () => {
         POST: {
           '^\\/user\\/[^/]+\\/settings\\/?$': {
             params: {
-              1: ':userId',
+              1: 'userId',
             },
             callback: expect.any(Function),
           },
@@ -118,8 +118,8 @@ describe('lib/router: Insert router', () => {
         POST: {
           '^\\/user\\/[^/]+\\/settings\\/[^/]+\\/?$': {
             params: {
-              1: ':userId',
-              3: ':settingGroup',
+              1: 'userId',
+              3: 'settingGroup',
             },
             callback: expect.any(Function),
           },
@@ -168,7 +168,7 @@ describe('lib/router: Insert router', () => {
         PUT: {
           '^\\/post\\/[^/]+\\/?$': {
             params: {
-              1: ':postId',
+              1: 'postId',
             },
             callback: expect.any(Function),
           },
@@ -176,7 +176,7 @@ describe('lib/router: Insert router', () => {
         PATCH: {
           '^\\/post\\/[^/]+\\/?$': {
             params: {
-              1: ':postId',
+              1: 'postId',
             },
             callback: expect.any(Function),
           },
@@ -184,7 +184,7 @@ describe('lib/router: Insert router', () => {
         DELETE: {
           '^\\/post\\/[^/]+\\/?$': {
             params: {
-              1: ':postId',
+              1: 'postId',
             },
             callback: expect.any(Function),
           },
