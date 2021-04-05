@@ -1,6 +1,8 @@
 const https = require('https');
 const { randomBytes } = require('crypto');
 
+const helper = require('../libs/helper');
+
 const cat = {};
 
 const apiKey = process.env.CAT_KEY || '582af1e5-ae1d-4410-a0bd-81b167ebebcd';
@@ -131,6 +133,10 @@ cat.uploadImage = (input) => {
 
   if (Array.isArray(file)) {
     return Promise.reject(new Error('Expecting single file'));
+  }
+
+  if (!helper.checkImageSignature(file.content, file.originalFileName)) {
+    return Promise.reject(new Error('Image malformed'));
   }
 
   return new Promise((resolve, reject) => {
