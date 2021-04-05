@@ -156,7 +156,17 @@ exports.init = () => {
               contentType: fileContentType.trim(),
             };
 
-            files[name] = file;
+            // multiple file, same name
+            if (files[name] && !Array.isArray(files[name])) {
+              files[name] = [
+                files[name],
+                file,
+              ];
+            } else if (files[name] && Array.isArray(files[name])) {
+              files[name].push(file);
+            } else {
+              files[name] = file;
+            }
           } else {
             req[simple].body[name] = content;
           }
