@@ -115,7 +115,7 @@ const router = (function () {
         for (; i < iMax; i += 1) {
           const regexString = regexStrings[i];
 
-          const regex = new RegExp(regexString, 'g');
+          const regex = new RegExp(regexString);
           // check if requested path existed
           if (regex.test(simpleReq.path)) {
             handler = handlers[regexString];
