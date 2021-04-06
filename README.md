@@ -36,6 +36,8 @@ But you can expect a few things as listed below to be part of the codes.
 
 ## Pre-requisite
 
+Tested on node v14.16.0
+
 ## Manual setup
 
 Navigate to root folder
