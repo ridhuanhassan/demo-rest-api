@@ -12,6 +12,7 @@ Demonstrate how I build REST API server using Node JS standard library without h
 * [Run using Docker](#run-using-docker)
 * [Run test files](#run-test-files)
 * [API endpoints](#api-endpoints)
+* [Static files](#static-files)
 * [Add your endpoint](#add-your-endpoint)
 * [License](#license)
 * [Footnote](#footnote)
@@ -147,6 +148,25 @@ Below are the available endpoints.
     DELETE /cat/{image_id}
     ```
 
+## Static files
+Here are list of static files endpoints I have included in this demo.
+
+1.  ```
+    /static/doc/test.xlsx
+    ```
+2.  ```
+    /static/img/test.gif
+    ```
+3.  ```
+    /static/img/test.jpg
+    ```
+4.  ```
+    /static/img/test.png
+    ```
+
+You can also have your own static files hosted on this server by placing your static files inside `./static` folder.
+
+Bear in mind, I only allow several [types](https://github.com/ridhuanhassan/demo-rest-api/blob/main/libs/helper.js#L73) of file for now and I didn't do deep checking to validate those file.
 ## Add your endpoint
 1. From the root folder, create a file named `demo3.js` inside folder `./routers` .
     ```javascript
