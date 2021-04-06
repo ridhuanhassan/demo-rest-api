@@ -4,6 +4,7 @@ WORKDIR '/demo-rest-api'
 
 RUN mkdir cert
 
+# for demo only
 RUN openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 \
     -keyout cert/key.pem -out cert/cert.pem -subj '/CN=MY'
 
