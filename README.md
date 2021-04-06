@@ -1,7 +1,7 @@
 
 # demo-rest-api
 
-Demonstrate my knowledge on building REST API using Node JS standard library without having to rely on any framework.
+Demonstrate how I build REST API using Node JS standard library without having to rely on any framework.
 
 ## Table of contents
 
@@ -15,7 +15,7 @@ Demonstrate my knowledge on building REST API using Node JS standard library wit
 
 ## Intro
 
-This project is built entirely using pure Node JS except for test files which relies on Jest framework.
+This project is built entirely using pure Node JS. `package.json` contains only dev dependencies for testing and linting.
 
 I had to limit what will be included in this demo due to time constraint.
 But you can expect a few things as listed below but not limited to just those mentioned.
