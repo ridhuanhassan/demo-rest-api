@@ -33,7 +33,14 @@ exports.init = () => {
     // process static file
     if (url.match(/^\/static\/\S+|^\/static\/?$/)) {
       // lazy check, use file extension :')
-      res.setHeader('content-type', helper.getContentType(url));
+      const fileContentType = helper.getContentType(url);
+
+      if (fileContentType) {
+        res.setHeader('content-type', fileContentType);
+      } else {
+        helper.sendErrorResponse(res, 'File not supported', 400);
+        return;
+      }
 
       const readFileStream = fs.createReadStream(`${__dirname}/..${url}`);
 
