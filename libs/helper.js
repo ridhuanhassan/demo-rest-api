@@ -69,6 +69,7 @@ helper.checkImageSignature = (buffer, filename) => {
 };
 
 helper.getContentType = (url) => {
+  // limited mime for demo
   const contentTypes = {
     // images
     gif: 'image/gif',
@@ -76,6 +77,13 @@ helper.getContentType = (url) => {
     jpg: 'image/jpeg',
     png: 'image/png',
     svg: 'image/svg+xml',
+    // documents
+    csv: 'text/csv',
+    pdf: 'application/pdf',
+    ppt: 'application/vnd.ms-powerpoint',
+    pttx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    xls: 'application/vnd.ms-excel',
+    xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     // html
     htm: 'text/html; charset=utf-8',
     html: 'text/html; charset=utf-8',
@@ -91,7 +99,7 @@ helper.getContentType = (url) => {
     return contentTypes[extension[1]];
   }
 
-  return 'text/plain';
+  return '';
 };
 
 helper.sendErrorResponse = (res, message, statusCode) => {
