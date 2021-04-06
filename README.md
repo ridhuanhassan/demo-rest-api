@@ -31,7 +31,7 @@ But you can expect a few things as listed below to be part of the codes.
   * Demo 1. [Jump to file](https://github.com/ridhuanhassan/demo-rest-api/blob/main/routers/demo1.js)
   * Demo 2. [Jump to file](https://github.com/ridhuanhassan/demo-rest-api/blob/main/routers/demo2.js), <em>Please note that this file contains only routers. Please see controller below to see how I use built-in HTTPS client.</em>
     * Controller for Demo 2
-      * Demonstrate how I made request to third party API using standard library. [Jump to file.](https://github.com/ridhuanhassan/demo-rest-api/blob/main/controllers/cat.js)
+      * Demonstrate how I made request to third party API using standard library. [Jump to file.](https://github.com/ridhuanhassan/demo-rest-api/blob/main/controllers/cat.js). <em> I don't want to spend my time to refactor the code right now.</em>
 * Demonstrate testing using Jest framework. [Jump to file.](https://github.com/ridhuanhassan/demo-rest-api/blob/main/tests/libs/router/insertRouter.js)
 
 ## Pre-requisite
