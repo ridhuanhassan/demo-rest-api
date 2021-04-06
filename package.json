@@ -1,7 +1,7 @@
 {
   "name": "demo-rest-api",
   "version": "1.0.0",
-  "description": "demonstrate how I build REST API using Node JS without having to rely on any framework",
+  "description": "demonstrate how I build REST API server using Node JS without having to rely on any framework",
   "main": "index.js",
   "directories": {
     "lib": "lib"
