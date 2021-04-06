@@ -251,6 +251,50 @@ cat.getUploadedImages = (input) => {
   });
 };
 
+cat.getSingleImage = (input) => {
+  const options = {
+    hostname: 'api.thecatapi.com',
+    port: 443,
+    path: `/v1/images/${input.imageId}`,
+    method: 'GET',
+    headers: {
+      'X-Api-Key': apiKey,
+    },
+  };
+
+  return new Promise((resolve, reject) => {
+    const req = https.request(options, (res) => {
+      let result = '';
+
+      res.on('data', (chunk) => {
+        result += chunk;
+      });
+
+      res.on('end', () => {
+        const statusCode = res.statusCode;
+        const contentType = res.headers['content-type'].split(';')[0].trim();
+
+        const jsonified = JSON.parse(result);
+
+        if (Math.floor(statusCode / 100) === 2 && contentType === 'application/json') {
+          resolve({
+            id: jsonified.id,
+            image: jsonified.url,
+          });
+        } else {
+          reject(new Error(jsonified.message));
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      reject(error);
+    });
+
+    req.end();
+  });
+};
+
 cat.deleteImage = (input) => {
   const imageId = input.imageId;
 

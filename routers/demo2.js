@@ -76,6 +76,23 @@ router.get('/cat', (req, res) => {
     });
 });
 
+router.get('/cat/:imageId', (req, res) => {
+  const input = {
+    imageId: req[simple].params.imageId,
+  };
+
+  cat.getSingleImage(input)
+    .then((image) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.write(JSON.stringify(image));
+      res.end();
+    })
+    .catch((error) => {
+      helper.sendErrorResponse(res, error.message, 400);
+    });
+});
+
 router.delete('/cat/:imageId', (req, res) => {
   const input = {
     imageId: req[simple].params?.imageId,
